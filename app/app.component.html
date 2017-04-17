@@ -1,0 +1,30 @@
+<h1>Flickr Viewer</h1>
+
+<input id="tags" name="tags" type="text" #tags/>
+<button (click)="performSearch(tags.value)">Search</button>
+
+<div id="images" *ngIf='images && images.length'>
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>
+                    Preview
+                </th>
+                <th>Author</th>
+                <th>Tags</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let image of images">
+                <td>
+                  <img [src]="image.media.m">
+                  <a href="{{image.link}}">
+                    {{image.link}}
+                  </a>
+                </td>
+                <td>{{ image.author }}</td>
+                <td>{{ image.tags }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
